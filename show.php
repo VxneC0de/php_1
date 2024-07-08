@@ -16,18 +16,41 @@
 
       <tr>
         <th>ID</th>
-        <th>NAME</th>
-        <th>DESCRIPTION</th>
-        <th>PRICE</th>
-        <th>AMOUNT</th>
-        <th>IMG</th>
-        <th>DATE</th>
+        <th>NAME
+          <a href="show.php?n=NAME&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
+          <a href="show.php?n=NAME&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></th>
+        <th>DESCRIPTION
+          <a href="show.php?n=DESCRIPTION&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
+          <a href="show.php?n=DESCRIPTION&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></a>
+        </th>
+        <th>PRICE
+          <a href="show.php?n=PRICE&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
+          <a href="show.php?n=PRICE&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></a>
+        </th>
+        <th>AMOUNT
+          <a href="show.php?n=AMOUNT&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
+          <a href="show.php?n=AMOUNT&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></a>
+        </th>
+        <th>IMG
+          <a href="show.php?n=IMG&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
+          <a href="show.php?n=IMG&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></a>
+        </th>
+        <th>DATE
+          <a href="show.php?n=DATE&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
+          <a href="show.php?n=DATE&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></a>
+        </th>
       </tr>
 
       <?php
 
       include "connection.php";
-      $sql = "select * from products";
+
+      if(isset($_GET['n'])){
+        $sql = "select * from products order by ".$_GET['n']." ".$_GET['fu'];
+      }else{
+        $sql = "select * from products";
+      }
+
       $consult = mysqli_query($connection,$sql);
 
       while($ver=mysqli_fetch_array($consult)){
@@ -53,6 +76,9 @@
   <script src="jquery.js"></script>
 
   <script src="./logic.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   
   
