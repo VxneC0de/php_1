@@ -39,6 +39,7 @@
           <a href="show.php?n=DATE&fu=asc"><ion-icon name="arrow-up"></ion-icon></a>
           <a href="show.php?n=DATE&fu=desc"><ion-icon name="arrow-down"></ion-icon></a></a>
         </th>
+        <th colspan="2">ACTION</th>
       </tr>
 
       <?php
@@ -65,6 +66,8 @@
         <td><?php echo $ver[4]; ?></td>
         <td><img src="<?php echo $ver[5]; ?>" width="200"></td>
         <td><?php echo $ver[6]; ?></td>
+        <td>EDIT</td>
+        <td>DELETE</td>
       </tr>
 
       <?php } ?>
