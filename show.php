@@ -66,8 +66,8 @@
         <td><?php echo $ver[4]; ?></td>
         <td><img src="<?php echo $ver[5]; ?>" width="200"></td>
         <td><?php echo $ver[6]; ?></td>
-        <td>EDIT</td>
-        <td>DELETE</td>
+        <td><a href="edit.php?e=<?php echo $ver[0]; ?>">EDIT</a></td>
+        <td><a href="">DELETE</a></td>
       </tr>
 
       <?php } ?>
