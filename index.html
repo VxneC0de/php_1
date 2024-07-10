@@ -8,29 +8,31 @@
 </head>
 <body>
 
-  <main>
+  <main style="margin-top: 100px;">
 
-    <h1>LIST OF PRODUCTS</h1>
+    <header class="header">
 
-    <table>
+      <div class="logo-container">
+          <h3>MENU</h3>
+      </div>
 
-      <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>DESCRIPTION</th>
-        <th>PRICE</th>
-        <th>AMOUNT</th>
-        <th>IMG</th>
-        <th>DATE</th>
-      </tr>
+      <div class="nav-container">
+          <nav class="navigation">
+            <a href="insert.php" class="active">INSERT</a>
+            <a href="show.php">SHOW</a>
+            <a href="search.php">SEARCH</a>
+          </nav>
+      </div>
 
-    </table>
+  </header>
+
+    <ul>
+      <a href="insert.php">INSERT</a>
+      <a href="search.php">SEARCH</a>
+      <a href="show.php">EDIT</a>
+    </ul>
 
   </main>
-
-  <script src="jquery.js"></script>
-
-  <script src="./logic.js"></script>
   
 </body>
 </html>

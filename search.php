@@ -8,7 +8,9 @@
 </head>
 <body>
 
-  <main>
+<?php include "menu.php"; ?>
+
+  <main style="margin-top: 100px;">
 
     <h1>SEARCH PRODUCT</h1>
 

@@ -44,4 +44,6 @@ function errorRegistration(){
     $("#answer-registration").text("Try Later");
 }
 
-//EDIT
+//DELETE
+
+

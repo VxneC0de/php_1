@@ -2,6 +2,7 @@
 
 include "connection.php";
 extract($_POST);
+extract($_GET);
 switch($hidden){
   case 1:
     //INSERTAR
@@ -15,7 +16,7 @@ switch($hidden){
 
   break;
   case 2:
-    //EDITAR
+    //EDIT
     $sql = "update products set NAME='$name', DESCRIPTION='$description', PRICE='$price', AMOUNT='$amount', IMG='$img', DATE='$date', STATUS='$status' where id='$numberId'";
 
     if(mysqli_query($connection, $sql)){
@@ -25,6 +26,19 @@ switch($hidden){
     }
 
   break;
+  case 3:
+    //DELETE
+    //$sql = "delete from products where id=$e";
+    $sql = "update products set STATUS=1 where id=$e";
+    if(mysqli_query($connection, $sql)){
+      header("location:show.php");
+    }else{
+      ?><script>alert("Could not delete")</script><?php
+      header("location:show.php");
+    }
+
+  break;
+
 };
 
 

@@ -8,7 +8,9 @@
 </head>
 <body>
 
-  <main>
+<?php include "menu.php"; ?>
+
+  <main style="margin-top: 100px;">
 
     <h1>LIST OF PRODUCTS</h1>
 
@@ -47,9 +49,9 @@
       include "connection.php";
 
       if(isset($_GET['n'])){
-        $sql = "select * from products order by ".$_GET['n']." ".$_GET['fu'];
+        $sql = "select * from products where STATUS=0 order by ".$_GET['n']." ".$_GET['fu'];
       }else{
-        $sql = "select * from products";
+        $sql = "select * from products  where STATUS=0";
       }
 
       $consult = mysqli_query($connection,$sql);
@@ -67,7 +69,7 @@
         <td><img src="<?php echo $ver[5]; ?>" width="200"></td>
         <td><?php echo $ver[6]; ?></td>
         <td><a href="edit.php?e=<?php echo $ver[0]; ?>">EDIT</a></td>
-        <td><a href="">DELETE</a></td>
+        <td><a href="#" onclick="confirmation(<?php echo $ver[0]; ?>)">DELETE</a></td>
       </tr>
 
       <?php } ?>
@@ -79,6 +81,17 @@
   <script src="jquery.js"></script>
 
   <script src="./logic.js"></script>
+
+  <script>
+
+  function confirmation(cod) {
+    let answer = confirm("Are you sure to remove this product?")
+    if(answer){
+        window.location.href = "actions.php?e="+cod+"&hidden=3";
+    }
+  }
+
+  </script>
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
