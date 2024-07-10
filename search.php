@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<?php include "menu.php"; ?>
+<?php 
+  include "menu.php"; 
+  include "details.php";
+?>
 
   <main style="margin-top: 100px;">
 
@@ -72,10 +75,10 @@
         <td><?php echo $ver[0]; ?></td> 
         <td><?php echo $ver[1]; ?></td>
         <td><?php echo $ver[2]; ?></td>
-        <td><?php echo $ver[3]; ?></td>
+        <td><?php echo number_format($ver[3], 2, ",", ".")." $"; ?></td>
         <td><?php echo $ver[4]; ?></td>
         <td><img src="<?php echo $ver[5]; ?>" width="200"></td>
-        <td><?php echo $ver[6]; ?></td>
+        <td><?php echo flipDate($ver[6]); ?></td>
       </tr>
 
       <?php } ?>

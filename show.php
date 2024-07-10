@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<?php include "menu.php"; ?>
+<?php 
+  include "menu.php"; 
+  include "details.php";
+?>
 
   <main style="margin-top: 100px;">
 
@@ -64,10 +67,17 @@
         <td><?php echo $ver[0]; ?></td> 
         <td><?php echo $ver[1]; ?></td>
         <td><?php echo $ver[2]; ?></td>
-        <td><?php echo $ver[3]; ?></td>
+        <td><?php echo number_format($ver[3], 2, ",", ".")." $"; ?></td>
+        <?php 
+        # number_format -> para traer el numero con decimales. 
+        # 1er parametro -> numero o posicion a traer -> en este caso -> precio
+        # 2do parametro -> cantidad de decimales
+        # 3er tercer parametro -> cual es el simbolo que se usara para separar los decimales
+        # 4to parametro -> simbolo para las cantidades de miles
+        ?>
         <td><?php echo $ver[4]; ?></td>
         <td><img src="<?php echo $ver[5]; ?>" width="200"></td>
-        <td><?php echo $ver[6]; ?></td>
+        <td><?php echo flipDate($ver[6]); ?></td>
         <td><a href="edit.php?e=<?php echo $ver[0]; ?>">EDIT</a></td>
         <td><a href="#" onclick="confirmation(<?php echo $ver[0]; ?>)">DELETE</a></td>
       </tr>
