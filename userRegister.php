@@ -59,6 +59,16 @@
     <div class="register">
         <h2>SING IN</h2>
 
+        <?php
+          if(@$_GET['answers']==1){ ?>
+          <h2>Your registration was successful</h2>
+        <?php } ?>
+
+        <?php
+          if(@$_GET['answer']==2){ ?>
+          <h2>Error registering</h2>
+        <?php } ?>
+
         <form id="form" action="actions.php" method="post">
 
             <div>
@@ -67,7 +77,12 @@
                 </span>
                 <input type="text" id="nickRegister" name="nickRegister" required>
                 <label for="nickRegister">NICK</label>
-                <div class="error"></div>
+                <div class="error">
+                  <?php
+                    if(@$_GET['answers']==3){ ?>
+                    <h2>The nickname is already registered. Try again</h2>
+                  <?php } ?>
+                </div>
             </div>
 
             <div>
@@ -76,7 +91,12 @@
                 </span>
                 <input type="email" id="emailRegister" name="emailRegister" placeholder="admin@admin.com" required>
                 <label for="emailRegister">EMAIL</label>
-                <div class="error"></div>
+                <div class="error">
+                  <?php
+                    if(@$_GET['answer']==4){ ?>
+                    <h2>The email is already registered. Try again</h2>
+                  <?php } ?>
+                </div>
             </div>
 
             <div>
@@ -100,8 +120,8 @@
             <input type="hidden" name="hidden" value="4">
         
             <button type="submit" id="btnRegister">SING IN</button>
-        </form>
 
+        </form>
 
         <div>
             <p>

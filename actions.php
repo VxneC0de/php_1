@@ -40,15 +40,15 @@ switch($hidden){
   break;
   case 4:
     //REGISTER
-    $sql="select NICK from users where nick='$nickRegister'";
+    $sqlNick="select NICK from users where nick='$nickRegister'";
 
-    if(mysqli_query($connection, $sql)){
+    if(mysqli_query($connection, $sqlNick)){
       header("location:userRegister.php?answer=3");
     }
 
-    $sql="select EMAIL from users where nick='$emailRegister'";
+    $sqlEmail="select EMAIL from users where email='$emailRegister'";
 
-    if(mysqli_query($connection, $sql)){
+    if(mysqli_query($connection, $sqlEmail)){
       header("location:userRegister.php?answer=4");
     }
 
@@ -59,6 +59,8 @@ switch($hidden){
     }else{
       header("location:userRegister.php?answer=2");
     }
+
+  break;
 
 };
 
