@@ -38,6 +38,27 @@ switch($hidden){
     }
 
   break;
+  case 4:
+    //REGISTER
+    $sql="select NICK from users where nick='$nickRegister'";
+
+    if(mysqli_query($connection, $sql)){
+      header("location:userRegister.php?answer=3");
+    }
+
+    $sql="select EMAIL from users where nick='$emailRegister'";
+
+    if(mysqli_query($connection, $sql)){
+      header("location:userRegister.php?answer=4");
+    }
+
+    $sql = "insert into users values('', '$nickRegister', '$emailRegister', MD5('$confirmRegister'), 0, 0)";
+
+    if(mysqli_query($connection, $sql)){
+      header("location:userRegister.php?answer=1");
+    }else{
+      header("location:userRegister.php?answer=2");
+    }
 
 };
 

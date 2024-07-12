@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./show_styles.css">
+  <link rel="stylesheet" href="./css/show_styles.css">
   <title>List of Products</title>
 </head>
 <body>

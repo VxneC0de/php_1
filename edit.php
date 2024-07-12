@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./insert_styles.css">
+  <link rel="stylesheet" href="./css/insert_styles.css">
   <title>Edit Product</title>
 </head>
 <body>
@@ -15,9 +15,11 @@
     <?php 
     if(@$_GET['answer']==1){ ?>
     <h2 class="h2_1">Its edition was successful</h2>
+    <meta http-equiv = "refresh" content = "2; url = show.php"/>
     <?php }
     if(@$_GET['answer']==2){ ?>
     <h2 class="h2_2">There were problems registering, please try again later</h2>
+    <meta http-equiv = "refresh" content = "3; url = show.php"/>
     <?php 
     }
 
