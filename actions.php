@@ -40,27 +40,54 @@ switch($hidden){
   break;
   case 4:
     //REGISTER
-    $sqlNick="select NICK from users where nick='$nickRegister'";
 
-    if(mysqli_query($connection, $sqlNick)){
+    // para revisar si el nick o correo esta repetido
+    $sqlNick = "select count(ID) from users where NICK='$nickRegister'";
+    // para revisar si el email o correo esta repetido
+    $sqlEmail = "select count(ID) from users where EMAIL='$emailRegister'";
+
+    // consulta que va a la base de datos
+    $conne_1=mysqli_query($connection, $sqlNick);
+    $conne_2=mysqli_query($connection, $sqlEmail);
+
+    // vector que trae la consulta
+    $union_1=mysqli_fetch_array($conne_1);
+    $union_2=mysqli_fetch_array($conne_2);
+
+    if($union_1[0]>0){
       header("location:userRegister.php?answer=3");
-    }
-
-    $sqlEmail="select EMAIL from users where email='$emailRegister'";
-
-    if(mysqli_query($connection, $sqlEmail)){
+    }else if($union_2[0]>0){
       header("location:userRegister.php?answer=4");
-    }
-
-    $sql = "insert into users values('', '$nickRegister', '$emailRegister', MD5('$confirmRegister'), 0, 0)";
-
-    if(mysqli_query($connection, $sql)){
-      header("location:userRegister.php?answer=1");
     }else{
-      header("location:userRegister.php?answer=2");
+
+      $sql = "insert into users values('', '$nickRegister', '$emailRegister', MD5('$confirmRegister'), 0, 0)";
+
+      if(mysqli_query($connection, $sql)){
+        header("location:userRegister.php?answer=1");
+      }else{
+        header("location:userRegister.php?answer=2");
+      }
+
     }
 
   break;
+  case 5:
+
+    $sql = "select ID, NICK, EMAIL from users where (NICK = '$loginData' or EMAIL = '$loginData') and PASSWORD = '$passwordLogin'";
+
+    $conne=mysqli_query($connection, $sql);
+
+    if($v = mysqli_fetch_array($conne)){
+      ssession_start();
+      $_SESSION['who'] = $v[0];
+      $_SESSION['nick'] = $v[1];
+      $_SESSION['email'] = $v[2];
+
+      header("location:show.php");
+
+    }else{
+      header("location:userRegister.php?answer=5");
+    }
 
 };
 

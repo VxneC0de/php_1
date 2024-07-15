@@ -19,13 +19,13 @@
     <div class="login">
         <h2>LOGIN</h2>
 
-        <form id="loginForm" novalidate>
+        <form method="post" action="actions.php">
 
             <div>
                 <span>
                     <ion-icon name="mail"></ion-icon>
                 </span>
-                <input type="email" id="emailLogin" placeholder="admin@admin.com">
+                <input name="loginData" type="email" id="emailLogin" placeholder="admin@admin.com">
                 <label for="username">EMAIL</label>
                 <div class="error"></div>
             </div>
@@ -34,7 +34,7 @@
                 <span>
                     <ion-icon name="lock-closed" id="lockLogin"></ion-icon>
                 </span>
-                <input type="password" id="passwordLogin" placeholder="***********">
+                <input name="passwordLogin" type="password" id="passwordLogin" placeholder="***********">
                 <label for="password">PASSWORD</label>
                 <div class="error"></div>
             </div>
@@ -42,6 +42,8 @@
             <div>
                 <a href="#" id="btnRecuperar">Did you forget your password?</a>
             </div>
+
+            <input type="hidden" name="hidden" value="5">
             
             <button class="btn" id="btnLogin">LOGIN</button>
 
@@ -69,7 +71,7 @@
           <h2>Error registering</h2>
         <?php } ?>
 
-        <form id="form" action="actions.php" method="post">
+        <form action="actions.php" method="post">
 
             <div>
                 <span>
@@ -79,7 +81,7 @@
                 <label for="nickRegister">NICK</label>
                 <div class="error">
                   <?php
-                    if(@$_GET['answers']==3){ ?>
+                    if(@$_GET['answer']==3){ ?>
                     <h2>The nickname is already registered. Try again</h2>
                   <?php } ?>
                 </div>
@@ -141,16 +143,17 @@
 
   <script>
 
-  const form = document.querySelector('#form');
-  const password = document.querySelector('#passwordRegister');
-  const confirm= document.querySelector('#confirmRegister');
+  const form = document.querySelector('form');
+  const passwordRegister = document.querySelector('#passwordRegister');
+  const confirmRegister = document.querySelector('#confirmRegister');
+  
 
   form.addEventListener('submit', (event) => {
     event.preventDefault(); //Evita el envio automtico del formulario.
 
-    if(password.value !== confirm.value){
+    if(passwordRegister.value !== confirmRegister.value){
       alert('Passwords do not match. Try again');
-      confirm.focus(); //Pone el foco en el campo de repetir contraseña.
+      confirmRegister.focus(); //Pone el foco en el campo de repetir contraseña.
 
       return; //Detiene la ejecucion del codigo si las contraseñas no coinciden.
     }
@@ -158,6 +161,8 @@
 
     form.submit();
   });
+
+
 
 
   </script>
