@@ -25,7 +25,7 @@
                 <span>
                     <ion-icon name="mail"></ion-icon>
                 </span>
-                <input name="loginData" type="email" id="emailLogin" placeholder="admin@admin.com">
+                <input name="loginData" type="text" id="emailLogin" placeholder="admin@admin.com">
                 <label for="username">EMAIL</label>
                 <div class="error"></div>
             </div>
@@ -60,16 +60,6 @@
 
     <div class="register">
         <h2>SING IN</h2>
-
-        <?php
-          if(@$_GET['answers']==1){ ?>
-          <h2>Your registration was successful</h2>
-        <?php } ?>
-
-        <?php
-          if(@$_GET['answer']==2){ ?>
-          <h2>Error registering</h2>
-        <?php } ?>
 
         <form action="actions.php" method="post">
 
@@ -124,6 +114,16 @@
             <button type="submit" id="btnRegister">SING IN</button>
 
         </form>
+
+        <?php
+          if(@$_GET['answer']==1){ ?>
+          <h2>Your registration was successful</h2>
+        <?php } ?>
+
+        <?php
+          if(@$_GET['answer']==2){ ?>
+          <h2>Error registering</h2>
+        <?php } ?>
 
         <div>
             <p>

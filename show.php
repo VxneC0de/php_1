@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(isset ($_SESSION['who'])) { ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +17,8 @@
 ?>
 
   <main style="margin-top: 100px;">
+
+  <h2>Welcome!: <?php echo $_SESSION['nick']; ?></h2>
 
     <h1>LIST OF PRODUCTS</h1>
 
@@ -110,3 +115,6 @@
   
 </body>
 </html>
+<?php }else{
+  header("location:userRegister.php?answer=6");
+} ?>

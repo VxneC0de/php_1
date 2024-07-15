@@ -73,12 +73,12 @@ switch($hidden){
   break;
   case 5:
 
-    $sql = "select ID, NICK, EMAIL from users where (NICK = '$loginData' or EMAIL = '$loginData') and PASSWORD = '$passwordLogin'";
+    $sql = "select ID, NICK, EMAIL from users where (NICK = '$loginData' or EMAIL = '$loginData') and PASSWORD = MD5('$passwordLogin')";
 
     $conne=mysqli_query($connection, $sql);
 
     if($v = mysqli_fetch_array($conne)){
-      ssession_start();
+      session_start();
       $_SESSION['who'] = $v[0];
       $_SESSION['nick'] = $v[1];
       $_SESSION['email'] = $v[2];
