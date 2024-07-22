@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(isset ($_SESSION['who'])) { ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -106,3 +109,6 @@
   
 </body>
 </html>
+<?php }else{
+  header("location:userRegister.php?answer=6");
+} ?>

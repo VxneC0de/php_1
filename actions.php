@@ -89,6 +89,17 @@ switch($hidden){
       header("location:userRegister.php?answer=5");
     }
 
+  break;
+  case 6:
+
+    session_start();
+
+    session_unset();
+    session_destroy();
+    header("location:userRegister.php");
+
+  break; 
+
 };
 
 

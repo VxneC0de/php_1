@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  if(isset ($_SESSION['who'])) { ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,6 +23,8 @@
         <a href="show.php">SHOW</a>
         <a href="search.php">SEARCH</a>
       </nav>
+
+      <a href="actions.php?hidden=6"><button>SING OFF</button></a>
     </div>
 
   </header>
@@ -36,3 +41,6 @@
   
 </body>
 </html>
+<?php }else{
+  header("location:userRegister.php?answer=6");
+} ?>
