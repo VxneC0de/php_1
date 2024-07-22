@@ -110,6 +110,10 @@
             </div>
 
             <input type="hidden" name="hidden" value="4">
+
+            <a href="forgotten.php">Forgot your password?</a>
+
+            <br>
         
             <button type="submit" id="btnRegister">SING IN</button>
 
