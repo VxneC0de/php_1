@@ -7,7 +7,7 @@
 
   if($v=mysqli_fetch_array($q)){
     $code = rand(100000, 999999);
-    $sql_1 = "update set CODE='$code' users where ID='$v[0]'";
+    $sql_1 = "update users set CODE='$code' where ID='$v[0]'";
     mysqli_query($connection, $sql_1);
     $body = "Enter the code in the following link to recover the key: $code
     <a href="forgotten_3.php"></a>";
