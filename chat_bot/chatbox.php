@@ -15,9 +15,9 @@
 
 	    <form method="post" action="ansChat.php">
 
-	    <input type="text" name="ask">	
+	      <input type="text" name="ask">	
 
-	    <button type="submit">ASK</button>
+	      <button type="submit">ASK</button>
 
 	    <form>
 
@@ -25,7 +25,7 @@
 
 	</div>
 
-	<?php
+<?php
 }
 
 ?>
