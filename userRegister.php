@@ -40,7 +40,7 @@
             </div>
 
             <div>
-                <a href="#" id="btnRecuperar">Did you forget your password?</a>
+                <a href="forgotten.php" id="btnRecuperar">Did you forget your password?</a>
             </div>
 
             <input type="hidden" name="hidden" value="5">
@@ -110,8 +110,6 @@
             </div>
 
             <input type="hidden" name="hidden" value="4">
-
-            <a href="forgotten.php">Forgot your password?</a>
 
             <br>
         
