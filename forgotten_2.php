@@ -6,13 +6,14 @@
   $q = mysqli_query($connection, $sql);
 
   if($v=mysqli_fetch_array($q)){
-    $code = rand(100000, 999999);
-    $sql_1 = "update users set CODE='$code' where ID='$v[0]'";
-    mysqli_query($connection, $sql_1);
-    $body = "Enter the code in the following link to recover the key: $code
-    <a href="forgotten_3.php"></a>";
+    $code = rand(100000,999999);
+    $sql1 = "update users set CODE='$code' where ID='$v[0]'";
+    mysqli_query($connection, $sql1);
 
-    mail("$forgot", "Key Recovery", $body, "From to web"){
+    $body = "Enter the code in the following link to recover the key: $code
+    <a href='forgotten_3.php'></a>";
+
+    if (mail($forgot,"Key Recovery", $body,"From to web")){
       echo "Sent successfully, check your email";
     }else{
       echo "There is no record of the email entered, try again.";
