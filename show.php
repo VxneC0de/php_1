@@ -13,6 +13,7 @@
 
 <?php 
   include "menu.php"; 
+  include "./chat_bot/chatbox.php";
   include "details.php";
 ?>
 
@@ -90,6 +91,9 @@
       <?php } ?>
 
     </table>
+    
+    <?php chat(); ?>
+
 
   </main>
 
